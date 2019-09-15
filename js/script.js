@@ -11,9 +11,7 @@
 
   const articleSelector = document.getElementById("article");
 
-  const id = clickedElement.getAttribute("article");
-
-  console.log(articleSelector);
+  const id = clickedElement.getAttribute("href");
 
   console.log('Link was clicked!');
 
@@ -25,7 +23,7 @@
     activeLink.classList.remove('active');
   }
 
-  /* [IN PROGRESS] add class 'active' to the clicked link */
+  /* [DONE] add class 'active' to the clicked link */
 
   console.log('clickedElement:', clickedElement);
 
@@ -36,11 +34,17 @@
   /* find the correct article using the selector (value of 'href' attribute) */
   clickedElement.classList.add('active');
 
-  /* add class 'active' to the correct article */
-}
+  /*[DONE] add class 'active' to the correct article */
 
-const links = document.querySelectorAll('.titles a');
 
-for(let link of links){
-  link.addEventListener('click', titleClickHandler);
-}
+  const targetArticle = document.querySelector('.article');
+
+  console.log('targetArticle:', targetArticle);
+
+  targetArticle.classList.add('active');
+  }
+  const links = document.querySelectorAll('.titles a');
+
+  for(let link of links){
+    link.addEventListener('click', titleClickHandler);
+  }
