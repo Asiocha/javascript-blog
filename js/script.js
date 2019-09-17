@@ -33,10 +33,10 @@ const titleClickHandler = function(event) {
 
   /* add class 'active' to the correct article */
 
-  const targetArticle = document.querySelector(articleSelector);
+  const targetArticle = document.querySelectorAll(articleSelector);
 
-  for (let targetArticle of targetArticles) {
-    targetArticle.classList.remove('active');
+  for (let targetArticles of targetArticle) {
+    targetArticles.classList.remove('active');
   }
 
   console.log('targetArticle:', targetArticle);
