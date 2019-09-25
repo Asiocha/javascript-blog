@@ -133,18 +133,17 @@ function generateTitleLinks() {
       console.log(articleTagsArray);
       /* split tags into array */
       for (let tag of articleTagsArray) {
-      /* START LOOP: for each tag */
-      const linkHTML = '<li><a href="#tag-' + articleTags + '"></a></li>';
-      /* generate HTML of the link */
-      html = html + linkHTML;
-      /* add generated code to html variable */
-    }
+        /* START LOOP: for each tag */
+        const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+        /* generate HTML of the link */
+        html = html + linkHTML;
+        /* add generated code to html variable */
+      }
       /* END LOOP: for each tag */
       wrapperTags.innerHTML = html;
       /* insert HTML of all the links into the tags wrapper */
     }
-      /* END LOOP: for every article: */
-
-      generateTags();
-    }
+    /* END LOOP: for every article: */
   }
+  generateTags();
+}
