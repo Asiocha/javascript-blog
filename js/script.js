@@ -114,6 +114,9 @@ function generateTitleLinks() {
   // Trzecie zadanie
 
   function generateTags() {
+
+    let allTags = [];
+
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
     console.log(articles);
@@ -138,12 +141,27 @@ function generateTitleLinks() {
         /* generate HTML of the link */
         html = html + linkHTML;
         /* add generated code to html variable */
+
+        /* [NEW] check if this link is NOT already in allTags */
+        if(allTags.indexOf(linkHTML) == -1){
+        /* [NEW] add generated code to allTags array */
+        allTags.push(linkHTML);
+        }
       }
       /* END LOOP: for each tag */
       wrapperTags.innerHTML = html;
       /* insert HTML of all the links into the tags wrapper */
     }
     /* END LOOP: for every article: */
+
+    /* [NEW] find list of tags in right column */
+    const tagList = document.querySelector('.tags');
+
+    /* [NEW] add html from allTags to tagList */
+    tagList.innerHTML = allTags.join(' ');
+
   }
   generateTags();
+
+const optTagsListSelector = ('.tags.list');
 }
