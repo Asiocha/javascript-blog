@@ -111,7 +111,6 @@ function generateTitleLinks() {
 
   generateTitleLinks();
 
-  // Trzecie zadanie
 
   function calculateTagsParams(tags) {
 
