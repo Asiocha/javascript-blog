@@ -10,6 +10,9 @@ const templates = {
 const templates = {
   articleLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML)
 }
+const templates = {
+  articleLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML)
+}
 
 function titleClickHandler(event) {
 
@@ -209,6 +212,24 @@ function calculateTagsParams(tags) {
   }
 
   return params;
+}
+
+function generateAuthors(){
+
+  /* [NEW] create a new variable allTags with an empty object */
+  let allAuthors ={};
+
+  /* find all authors */
+  const articles = document.querySelectorAll(optArticleSelector);
+  /*START LOOP for each authors*/
+  for (let article of articles) {
+    /* find authors wrapper */
+    const authorWrapper = article.querySelector(optArticleAuthorSelector);
+    /* make html variable with empty string */
+    let html = '';
+    /* get authors from data-authors attribute */
+    const articleAuthor = article.getAttribute('data-author');
+  
 }
 
 function calculateTagClass(count, params) {
