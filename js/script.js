@@ -7,6 +7,9 @@
 const templates = {
   articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
 }
+const templates = {
+  articleLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML)
+}
 
 function titleClickHandler(event) {
 
@@ -134,7 +137,9 @@ function generateTags() {
     /* split tags into array */
     for (let tag of articleTagsArray) {
       /* START LOOP: for each tag */
-      const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
+      const linkTagHTMLData = {id: tagId, title: tagTitle};
+
+      const linkTagHTML = templates.tagLink(linkTagHTMLData);
       /* generate HTML of the link */
       html = html + linkHTML;
       /* add generated code to html variable */
