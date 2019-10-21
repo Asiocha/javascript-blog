@@ -3,6 +3,11 @@
   const links = document.querySelectorAll('.titles a');
   console.log('links:', links);
 });*/
+
+const templates = {
+  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+}
+
 function titleClickHandler(event) {
 
   event.preventDefault();
@@ -68,7 +73,9 @@ function generateTitleLinks() {
 
     const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
-    const linkHTML = '<li><a href="#' + articleId + ' "><span> ' + articleTitle + ' </span></a></li>';
+    const linkHTMLData = {id: articleId, title: articleTitle};
+
+    const linkHTML = templates.articleLink(linkHTMLData);
 
     console.log(linkHTML);
 
