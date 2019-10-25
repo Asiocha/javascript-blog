@@ -47,6 +47,10 @@ function titleClickHandler(event) {
   /* add class 'active' to the correct article */
 
   targetArticle.classList.add('active');
+
+  for (let link of links) {
+    link.addEventListener('click', titleClickHandler);
+  }
 };
 
 const optArticleSelector = '.post',
